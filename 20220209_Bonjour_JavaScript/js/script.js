@@ -7,8 +7,11 @@ function askName(){
 }
 
 function askBirthYear(){
-    annee = prompt("Merci, en quelle année êtes-vous né(e)?")
-    age = new Date().getFullYear() - Number(annee)
+    let annee = prompt("Merci, en quelle année êtes-vous né(e)?")
+    let mois = prompt("Quel est votre MOIS de naissance ?")
+    let jour = prompt("Et pour finir, votre JOUR de naissance?")
+    let unix_age = new Date() - new Date(annee+"."+mois+"."+jour)
+    let age = unix_age / 1000 / 60 / 60 / 24 / 365.25
     document.body.innerHTML += "<h3>Vous avez " + age + " ans</h3>"
 }
 
