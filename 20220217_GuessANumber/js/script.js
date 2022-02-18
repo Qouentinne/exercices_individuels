@@ -13,9 +13,14 @@ function startGame(){
     }
     document.querySelector("button").style.display = 'none'
     let answ_input = document.createElement("input")
-    let answInputAttributes = [["type", "number"], ["placeholder", "Trouvez le nombre"], ["min", exerciceMinValue+1], ["max", exerciceMaxValue-1], ["step", 1] , ["name", "answer"]]
+    let answInputAttributes = [["placeholder", "Trouvez le nombre"], ["min", exerciceMinValue+1], ["max", exerciceMaxValue-1], ["step", 1], ["name", "answer"], ["style", "width: 150px; margin-bottom: 10px"]]
     answInputAttributes.forEach(element => {
         answ_input.setAttribute(element[0], element[1])
+    })
+    answ_input.addEventListener("keydown", function(e){
+        if (e.code === "Enter"){
+            didIWin(this.value, numberToGuess)
+        }
     })
     let returnButton = document.createElement("button")
     returnButton.innerHTML = "OK"
