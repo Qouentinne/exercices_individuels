@@ -64,11 +64,11 @@ function checkNumberRange(n){
 function didIWin(gNumber, numberToGuess){
     if (gameIsOn == true){
         attempts ++
-        document.getElementsByName("answer").value = ""
+        document.getElementsByName("answer")[0].value = ""
         if (gNumber == numberToGuess) {
             console.clear()
             console.log("Bravo ! Vous avez deviné le nombre")
-            returnInfo("<b>Bravo ! Vous avez deviné le nombre en " +attempts+ " essais</b>")
+            returnInfo("<br><b>Bravo ! Vous avez deviné le nombre en " +attempts+ " essais</b>")
             gameIsOn = false
         } else {
             if (gNumber < numberToGuess){
