@@ -13,7 +13,7 @@ function startGame(){
     }
     document.querySelector("button").style.display = 'none'
     let answ_input = document.createElement("input")
-    let answInputAttributes = [("type", "number"), ("placeholder", "Trouvez le nombre"), ("min", exerciceMinValue+1), ("max", exerciceMaxValue-1), ("step", 1) , ("name", "answer")]
+    let answInputAttributes = [["type", "number"], ["placeholder", "Trouvez le nombre"], ["min", exerciceMinValue+1], ["max", exerciceMaxValue-1], ["step", 1] , ["name", "answer"]]
     answInputAttributes.forEach(element => {
         answ_input.setAttribute(element[0], element[1])
     })
