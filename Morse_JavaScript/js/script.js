@@ -70,7 +70,10 @@ function encode(array) {
         if ((/[a-z]+/).test(char)){
             char=char.toUpperCase()
         }
-        encodedArr.push(translateLatinCharacter(char))
+        let encodedChar = translateLatinCharacter(char) 
+        if (typeof(encodedChar) !== 'undefined') {
+            encodedArr.push(encodedChar)
+        } 
     }
     return encodedArr
 }
