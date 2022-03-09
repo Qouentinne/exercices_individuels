@@ -1,5 +1,5 @@
 function create_branches(tree, init, i){
-    if (i<=1){
+    if (i<=2){
         return tree
     }
     tArr = Array.from(init)
@@ -7,21 +7,22 @@ function create_branches(tree, init, i){
     cBranch = tArr.join('')
     cBranch = cBranch.padStart(init.length-1, ' ')
     tree = cBranch + tree
-    return create_branches(tree, cBranch, i-1) + tree
+    return create_branches(tree, cBranch, i-1)
 }
 
 function build_tree(n){
     //init
-    base1 = "\\\n"
-    base1 = base1.padStart(2*n+2, "*")
+    let base1 = "\\\n"
+    base1 = base1.padStart(2*n+1, "*")
     base = "/"+base1
-    summit1 = "+\n"
-    summit1.padStart(n+2, ' ')
-    summit2 = "/*\\\n"
-    summit2.padStart(n-1, ' ')
-    summit = summit1 + summit2
+    let summit1 = "+\n"
+    summit1=summit1.padStart(n+2, ' ')
+    let summit2 = "/*\\\n"
+    summit2=summit2.padStart(n+3, ' ')
+    let summit3 = "/***\\\n"
+    summit3=summit3.padStart(n+4, ' ')
+    summit = summit1 + summit2 + summit3
     //recursion
-    let tree = ""
     tTree = create_branches(base, base, n-1)
     fTree = summit + tTree
 
