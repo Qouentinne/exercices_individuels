@@ -27,7 +27,7 @@ function isPalindrome(gDate){
             }
         }
         return true
-    }else{console.log("Date non valide")}
+    }
 }
 
 function formatLowNumbers(n){
@@ -40,6 +40,12 @@ function formatLowNumbers(n){
 function dateToString(date){
     return formatLowNumbers(date.getDate().toString()) + "/" + formatLowNumbers((date.getMonth()+1).toString()) + "/" + date.getFullYear().toString()
 } 
+
+function stringToDate(date){
+    dateArr=date.split("/")
+    dateStr=dateArr[2]+"-"+dateArr[1]+"-"+dateArr[0]
+    return new Date(dateStr)
+}
 
 function getNextPalindromes(x){
     let date = new Date()
@@ -55,4 +61,27 @@ function getNextPalindromes(x){
     results.forEach(d => {
         console.log(d)
     });
+}
+
+function getNextPalindromes_(x){
+    let today = new Date()
+    let date = today.getFullYear()
+    let results=[]
+    while (results.length<x){
+        let dateString = date.toString()
+        let dateArray = dateString.split("")
+        let copyArray = dateArray.slice()
+        copyArray.reverse()
+        let finArray = copyArray.concat(dateArray)
+        let finDate = ""
+        finDate = finArray[0] + finArray[1]+ "/" + finArray[2] + finArray[3] + "/" + finArray[4] + finArray[5] + finArray[6] + finArray[7]
+        if(isPalindrome(finDate) && stringToDate(finDate) > today) {
+            results.push(finDate)
+        
+        }
+        date++
+    }
+    results.forEach(d => {
+        console.log(d)
+    });   
 }
