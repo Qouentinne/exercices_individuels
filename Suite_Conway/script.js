@@ -35,4 +35,13 @@ let finalizer = (arr) => {
     return finalArr.join('')
 } 
 
-console.log(audiocodeur(initStr));
+let suiteConway = (initStr, n) => {
+    let currStr = initStr;
+    for (let i = 0; i < n; i++) {
+        console.log(currStr)
+        currStr = audiocodeur(currStr)        
+    }
+    return currStr
+}
+
+console.log(suiteConway('ab', 5))
